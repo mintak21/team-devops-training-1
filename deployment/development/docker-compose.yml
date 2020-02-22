@@ -5,7 +5,7 @@ services:
         hostname: flask-server
         build:
             context: ../../
-            dockerfile: ./deployment/docker/Dockerfile
+            dockerfile: ./deployment/development/Dockerfile
         working_dir: /usr/local/
         ports:
             - "5000:5000"
