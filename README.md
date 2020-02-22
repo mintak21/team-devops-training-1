@@ -57,7 +57,7 @@ https://team-dev-practice.herokuapp.com/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
   ```text
   {
     "param_cards": "S2,S3,S4,S5,S6",
-    "result": "ハイカード"
+    "result": "フラッシュ"
   }
   ```
 
