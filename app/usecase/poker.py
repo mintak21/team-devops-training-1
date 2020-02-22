@@ -27,6 +27,7 @@ class PokerUseCase:
             HandType.STRAIGHT_FLUSH if self._has_straight_flush(cards) else \
             HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
             HandType.FLUSH if self._has_flush(cards) else \
+            HandType.STRAIGHT if self._has_straight(cards) else \
             HandType.THREE_OF_A_KIND if self._has_three_of_a_kind(cards) else \
             HandType.ONE_PAIR if self._has_one_pair(cards) else \
             HandType.HIGH_CARDS
