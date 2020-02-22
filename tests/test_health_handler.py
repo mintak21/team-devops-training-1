@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from app.domain.model.hands import HandType
 from app.manage import app
 
 

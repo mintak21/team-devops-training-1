@@ -15,6 +15,7 @@ class TestPokerUseCase(object):
         self.th2 = ['H2', 'S2', 'D2', 'H4', 'S4']
         self.f1 = ['SA', 'DA', 'CA', 'HA', 'CK']
         self.f2 = ['SK', 'DK', 'C10', 'HK', 'CK']
+        self.fl = ['SA', 'S2', 'SJ', 'SQ', 'SK']
 
     def teardown_method(self, method):
         pass
@@ -30,6 +31,9 @@ class TestPokerUseCase(object):
     def test_three_of_a_kind(self):
         assert HandType.THREE_OF_A_KIND == judge_hand(self.th1)
         assert HandType.THREE_OF_A_KIND == judge_hand(self.th2)
+
+    def test_flush(self):
+        assert HandType.FLUSH == judge_hand(self.fl)
 
     def test_four_of_a_kind(self):
         assert HandType.FOUR_OF_A_KIND == judge_hand(self.f1)

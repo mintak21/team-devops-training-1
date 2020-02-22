@@ -17,11 +17,18 @@ class PokerUseCase:
         """
         cards = self._convert_param(str_cards)
         return HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
+            HandType.FLUSH if self._has_flush(cards) else \
             HandType.THREE_OF_A_KIND if self._has_three_of_a_kind(cards) else \
             HandType.ONE_PAIR if self._has_one_pair(cards) else HandType.HIGH_CARDS
 
     def _has_four_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 4)
+
+    def _has_flush(self, cards):
+        check_set = set()
+        for c in cards:
+            check_set.add(c.suit)
+        return len(check_set) == 1  # 5枚以上の場合はNG
 
     def _has_three_of_a_kind(self, cards):
         return HandType.THREE_OF_A_KIND if self._has_more_same_cards(
