@@ -1,3 +1,5 @@
+|ci| |licence|
+
 # アプリケーションの実行(Local)
 ```bash
 make run
@@ -68,9 +70,11 @@ app/usecase/poker.py              30      0   100%
 ------------------------------------------------------------
 ```
 
-# デプロイ
-`master`にPRをマージ(`bump`)すると、これをトリガーにしてCI->CDが実行されます。
-ブランチのCIが正常完了した場合、自動的に`heroku`へデプロイするように設定しています。
+# CI/CD
+各ブランチにおいて、`push`を契機として`CircleCI`にてテストが実施されます。
+また、`master`にPRをマージ(`bump`)することをトリガーにしてデプロイが実行されます。
+(`master`ブランチの変更を検知し、CIが正常完了したのち自動的に`heroku`側のリポジトリにpushし、
+デプロイがされるように(Herokuで)設定を行っています。)
 
 # ディレクトリ構成
 レイヤードアーキテクチャライクな構成としています。(あくまでライク)
@@ -99,5 +103,8 @@ app                                ルートディレクトリ
 - 一部の役は判定されない(2ペア、フルハウス、ストレート、ロイヤルストレートが判定できない)
 - パラメータのバリデーションを行っていない
 
-# Ref.
-- CI: CircleCI
+.. |ci| image:: https://circleci.com/gh/mintak21/team-dev-practice.svg?style=shield&circle-token=dc9af5b436e25a00bb0c3dd4e12cdc8c7aeb2904
+   :target: https://circleci.com/gh/mintak21/team-dev-practice
+
+.. |licence| image:: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+  :target: https://github.com/mintak21/texas-holdem-poker/blob/master/LICENSE
