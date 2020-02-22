@@ -22,6 +22,7 @@ curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
   |名前|概要|データ型
   |:---|:---|:---
   |cards|判定したい手札一覧(5枚)|string(カンマ区切り)
+
   Sample：`http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6`
 
 - レスポンス
@@ -33,6 +34,7 @@ curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
   |:---|:---|
   |param_cards|リクエストパラメータ(cards)
   |result|判定結果|
+
 
   Sample:
   ```text
