@@ -41,20 +41,28 @@ class PokerUseCase:
         return self._has_more_same_cards(cards, 4)
 
     def _has_flush(self, cards):
-        check_set = set()
-        for c in cards:
-            check_set.add(c.suit)
-        return len(check_set) == 1  # 5枚以上の場合はNG
+        suit_set = set([c.suit for c in cards])
+        return len(suit_set) == 1  # 5枚以上の場合はNG
 
     def _has_three_of_a_kind(self, cards):
-        return HandType.THREE_OF_A_KIND if self._has_more_same_cards(
-            cards, 3) else None
+        return self._has_more_same_cards(cards, 3)
+
+    def _has_two_pair(self, cards):
+        pass
 
     def _has_one_pair(self, cards):
-        return HandType.ONE_PAIR if self._has_more_same_cards(
-            cards, 2) else None
+        return self._has_more_same_cards(cards, 2)
 
     def _has_more_same_cards(self, cards, target_num):
+        """{cards}が{target_num}枚以上のペアを含むかを判定します
+
+        Args:
+            cards (list(Card)): 判定対象のカード
+            target_num (int): 調べたい枚数
+
+        Returns:
+            bool: {target_num}枚以上のペアが1つでもあればTrue、そうでなければFalse
+        """
         number_list = [c.number for c in cards]
         collection = collections.Counter(number_list)
         for l in collection.most_common():
