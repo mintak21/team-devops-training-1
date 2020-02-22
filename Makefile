@@ -1,4 +1,4 @@
-DEPLOY_DIR = deployment/docker
+DEPLOY_DIR = deployment/development
 
 .PHONY: run stop cleanup
 
