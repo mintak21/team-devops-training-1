@@ -2,6 +2,6 @@
 # See. https://devcenter.heroku.com/articles/build-docker-images-heroku-yml#getting-started
 build:
   docker:
-    web: Dockerfile
+    web: deployment/heroku/docker/Dockerfile
 run:
   web: gunicorn application.manage:app -c application/config/gunicorn_setting.py
