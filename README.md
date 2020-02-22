@@ -60,7 +60,7 @@ app                                ルートディレクトリ
 ├── handler                        HTTP/プロトコルレイヤー
 │   ├── health.py
 │   └── poker.py
-├── manage.py                      ランチャー
+├── manage.py                      Launch Point
 └── usecase                        ビジネスルールレイヤー
     └── poker.py
 ```
