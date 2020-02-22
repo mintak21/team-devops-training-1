@@ -1,10 +1,17 @@
 [![](https://circleci.com/gh/mintak21/team-dev-practice.svg?style=shield&circle-token=dc9af5b436e25a00bb0c3dd4e12cdc8c7aeb2904)](https://circleci.com/gh/mintak21/team-dev-practice) [![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mintak21/team-dev-practice/blob/master/LICENSE)
 
 # アプリケーションの実行
-## Local
+## Local(Non-Docker)
 
 ```bash
 make run
+curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
+```
+
+## Local(Docker)
+
+```bash
+make run_docker
 curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
 ```
 
