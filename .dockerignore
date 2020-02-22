@@ -1,0 +1,5 @@
+*/.DS_Store
+*/.local_deploy
+*/__pycache__/
+*/.vscode
+*/deployment/*
