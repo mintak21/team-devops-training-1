@@ -3,11 +3,11 @@ from enum import Enum
 
 
 class Card(object):
-    """１枚のトランプを表す。
-    数字により、大小を比較可能。
+    """１枚のトランプを表します。
 
     Attributes:
-        card_str (string)  : カードを表す文字列
+        suit (Suit)  : カードのスート
+        number (CardNumber)  : カードの番号
     """
 
     def __init__(self, card_str):
@@ -25,7 +25,7 @@ class Card(object):
         return self._number
 
     def __str__(self):
-        return str(self._suit) + str(self._number)
+        return self._suit.string_style + self._number.string_style
 
     def __eq__(self, other):
         if self.__class__ is other.__class__:
@@ -54,7 +54,7 @@ class Suit(Enum):
 
     @classmethod
     def value_of(cls, string_style):
-        """引数に対応するSuitを返却する。
+        """引数に対応するSuitを返却します
 
         Args:
             string_style (string): S, H, D, Cの文字
@@ -104,7 +104,7 @@ class CardNumber(Enum):
 
     @classmethod
     def value_of(cls, string_style):
-        """引数に対応するCardNumberを返却する。
+        """引数に対応するCardNumberを返却します
 
         Args:
             string_style (string): A,K,Q,J,10~2の文字
