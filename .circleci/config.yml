@@ -28,4 +28,4 @@ jobs:
           name: run pytest
           command: |
             . venv/bin/activate
-            pytest -vv --cov=app --cov-report==html --cov-report=term-missing
+            pytest -vv --cov=app --cov-report=html --cov-report=term-missing
