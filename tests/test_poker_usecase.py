@@ -7,6 +7,10 @@ from app.usecase.poker import judge_hand
 
 class TestPokerUseCase(object):
     def setup_method(self, method):
+        self.rss = ['S10', 'SJ', 'SQ', 'SK', 'SA']
+        self.rsd = ['DJ', 'DQ', 'DK', 'DA', 'D10']
+        self.rsh = ['HQ', 'HK', 'HA', 'H10', 'HJ']
+        self.rsc = ['CA', 'CK', 'CQ', 'CJ', 'C10']
         self.h1 = ['S2', 'DJ', 'CA', 'HQ', 'S10']
         self.h2 = ['SA', 'S10', 'S8', 'H4', 'H2']
         self.o1 = ['SA', 'DA', 'H3', 'H4', 'H5']
@@ -19,6 +23,12 @@ class TestPokerUseCase(object):
 
     def teardown_method(self, method):
         pass
+
+    def test_toyal_straight(self):
+        assert HandType.ROYAL_STRAIGHT == judge_hand(self.rss)
+        assert HandType.ROYAL_STRAIGHT == judge_hand(self.rsd)
+        assert HandType.ROYAL_STRAIGHT == judge_hand(self.rsh)
+        assert HandType.ROYAL_STRAIGHT == judge_hand(self.rsc)
 
     def test_high_card(self):
         assert HandType.HIGH_CARDS == judge_hand(self.h1)

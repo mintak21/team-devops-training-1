@@ -6,6 +6,13 @@ from ..domain.model.hands import HandType
 
 
 class PokerUseCase:
+    _ROYAL_STRAIGHTS = [
+        (Card('S10'), Card('SJ'), Card('SQ'), Card('SK'), Card('SA')),
+        (Card('D10'), Card('DJ'), Card('DQ'), Card('DK'), Card('DA')),
+        (Card('H10'), Card('HJ'), Card('HQ'), Card('HK'), Card('HA')),
+        (Card('C10'), Card('CJ'), Card('CQ'), Card('CK'), Card('CA')),
+    ]
+
     def execute(self, str_cards):
         """ポーカーの役を判定します。
 
@@ -16,10 +23,19 @@ class PokerUseCase:
             Handtype: 役の判定結果
         """
         cards = self._convert_param(str_cards)
-        return HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
+        return HandType.ROYAL_STRAIGHT if self._has_royal_straight(cards) else \
+            HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
             HandType.FLUSH if self._has_flush(cards) else \
             HandType.THREE_OF_A_KIND if self._has_three_of_a_kind(cards) else \
-            HandType.ONE_PAIR if self._has_one_pair(cards) else HandType.HIGH_CARDS
+            HandType.TWO_PAIR if self._has_two_pair(cards) else \
+            HandType.ONE_PAIR if self._has_one_pair(cards) else \
+            HandType.HIGH_CARDS
+
+    def _has_royal_straight(self, cards):
+        for s in PokerUseCase._ROYAL_STRAIGHTS:
+            if set(s) <= set(cards):
+                return True
+        return False
 
     def _has_four_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 4)
