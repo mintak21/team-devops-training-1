@@ -24,10 +24,10 @@ class PokerUseCase:
         """
         cards = self._convert_param(str_cards)
         return HandType.ROYAL_STRAIGHT if self._has_royal_straight(cards) else \
+            HandType.STRAIGHT_FLUSH if self._has_straight_flush(cards) else \
             HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
             HandType.FLUSH if self._has_flush(cards) else \
             HandType.THREE_OF_A_KIND if self._has_three_of_a_kind(cards) else \
-            HandType.TWO_PAIR if self._has_two_pair(cards) else \
             HandType.ONE_PAIR if self._has_one_pair(cards) else \
             HandType.HIGH_CARDS
 
@@ -37,6 +37,10 @@ class PokerUseCase:
                 return True
         return False
 
+    def _has_straight_flush(self, cards):
+        return self._has_flush(cards) and \
+            self._has_straight(cards)  # 5枚以上の場合はNG
+
     def _has_four_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 4)
 
@@ -44,11 +48,12 @@ class PokerUseCase:
         suit_set = set([c.suit for c in cards])
         return len(suit_set) == 1  # 5枚以上の場合はNG
 
+    def _has_straight(self, cards):
+        # LEVEL C:ストレート判定の実装箇所
+        return False
+
     def _has_three_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 3)
-
-    def _has_two_pair(self, cards):
-        pass
 
     def _has_one_pair(self, cards):
         return self._has_more_same_cards(cards, 2)
@@ -79,7 +84,6 @@ class PokerUseCase:
         Returns:
             list(Card): 変換されたカード一覧
         """
-        # Issue Level Cの実装箇所目処
         result = [Card(s) for s in str_cards]
         return result
 
