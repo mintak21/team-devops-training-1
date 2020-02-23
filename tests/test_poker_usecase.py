@@ -27,7 +27,7 @@ class TestPokerUseCase(object):
     def teardown_method(self, method):
         pass
 
-    def test_toyal_straight(self):
+    def test_royal_straight(self):
         assert HandType.ROYAL_STRAIGHT == judge_hand(self.rss)
         assert HandType.ROYAL_STRAIGHT == judge_hand(self.rsd)
         assert HandType.ROYAL_STRAIGHT == judge_hand(self.rsh)
