@@ -20,6 +20,9 @@ class TestPokerUseCase(object):
         self.f1 = ['SA', 'DA', 'CA', 'HA', 'CK']
         self.f2 = ['SK', 'DK', 'C10', 'HK', 'CK']
         self.fl = ['SA', 'S2', 'SJ', 'SQ', 'SK']
+        self.st = ['H7', 'D6', 'H5', 'S4', 'C3']
+        self.st_dummy = ['C2', 'H2', 'S3', 'D4', 'C6']
+        self.st_fl = ['S9', 'S10', 'SJ', 'SQ', 'SK']
 
     def teardown_method(self, method):
         pass
@@ -41,6 +44,14 @@ class TestPokerUseCase(object):
     def test_three_of_a_kind(self):
         assert HandType.THREE_OF_A_KIND == judge_hand(self.th1)
         assert HandType.THREE_OF_A_KIND == judge_hand(self.th2)
+
+    def test_straight_flush(self):
+        # LEVEL C:ストレートフラッシュ判定テストの実装箇所
+        pass
+
+    def test_straight(self):
+        # LEVEL C:ストレート判定テストの実装箇所
+        pass
 
     def test_flush(self):
         assert HandType.FLUSH == judge_hand(self.fl)
