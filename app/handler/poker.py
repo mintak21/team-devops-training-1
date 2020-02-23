@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from flask import Blueprint, jsonify, request
+from flask_cors import CORS
 
 from ..usecase.poker import judge_hand
 
 poker_bp = Blueprint('poker', __name__)
+CORS(poker_bp)
 
 
-@poker_bp.route('/judge', methods=['GET'])
+@poker_bp.route('/judge')
 def judge():
     cards = request.args.get('cards')
     result = judge_hand(cards.split(','))
