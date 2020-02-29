@@ -22,6 +22,8 @@ https://team-dev-practice.herokuapp.com/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
 ```
 
 # アクセスポイント
+ローカルではポート5000番でLISTENしています。
+
 ## ヘルスチェック
 
 - ルート：GET `api/v1/health/`
@@ -86,13 +88,13 @@ app/usecase/poker.py              30      0   100%
 ```
 
 # CI/CD
-各ブランチにおいて、`push`を契機として`CircleCI`にてテストが実施されます。
-また、`master`にPRをマージ(`bump`)することをトリガーにしてデプロイが実行されます。
+各ブランチにおいて、`push`を契機として`CircleCI`にてテストが実施されます。<br>
+また、`master`にPRをマージ(`bump`)することをトリガーにしてデプロイが実行されます。<br>
 (`master`ブランチの変更を検知し、CIが正常完了したのち自動的に`heroku`側のリポジトリにpushし、
 デプロイがされるように(Herokuで)設定を行っています。)
 
 # ディレクトリ構成
-レイヤードアーキテクチャライクな構成としています。(あくまでライク)
+レイヤードアーキテクチャライクな構成としています。(あくまでライク)<br>
 依存関係：`handler` --> `usecase` --> `domain`
 
 - `handler` : 通信プロトコルに関わる部分、`http`関連の処理をここに記載
