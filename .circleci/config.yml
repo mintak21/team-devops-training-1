@@ -30,3 +30,8 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -vv --cov=app --cov-report=html --cov-report=term-missing
+      - run:
+          name: upload codecov
+          command: |
+            . venv/bin/activate
+            codecov -t $CODECOV_TOKEN
