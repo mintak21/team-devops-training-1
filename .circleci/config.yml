@@ -20,6 +20,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+            pip install -r .circleci/test_requirements.txt
       - save_cache:
           paths:
             - ./venv
@@ -29,3 +30,8 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -vv --cov=app --cov-report=html --cov-report=term-missing
+      - run:
+          name: upload codecov
+          command: |
+            . venv/bin/activate
+            codecov -t $CODECOV_TOKEN

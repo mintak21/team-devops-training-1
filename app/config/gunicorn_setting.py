@@ -10,7 +10,6 @@ bind = str(host) + ':' + str(port)
 reload = True
 
 # Logging
-accesslog = '-'
 errorlog = '-'
 loglevel = 'debug'
 
