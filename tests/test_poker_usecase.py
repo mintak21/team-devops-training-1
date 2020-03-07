@@ -16,7 +16,7 @@ class TestPokerUseCase(object):
         self.o1 = ['SA', 'DA', 'H3', 'H4', 'H5']
         self.o2 = ['SA', 'S2', 'D3', 'H3', 'H8']
         self.th1 = ['SA', 'DA', 'S8', 'HA', 'H2']
-        self.th2 = ['H2', 'S2', 'D2', 'H4', 'S4']
+        self.th2 = ['H2', 'S2', 'D2', 'H4', 'S6']
         self.f1 = ['SA', 'DA', 'CA', 'HA', 'CK']
         self.f2 = ['SK', 'DK', 'C10', 'HK', 'CK']
         self.fl = ['SA', 'S2', 'SJ', 'SQ', 'SK']

@@ -26,9 +26,11 @@ class PokerUseCase:
         return HandType.ROYAL_STRAIGHT if self._has_royal_straight(cards) else \
             HandType.STRAIGHT_FLUSH if self._has_straight_flush(cards) else \
             HandType.FOUR_OF_A_KIND if self._has_four_of_a_kind(cards) else \
+            HandType.FULL_HOUSE if self._has_full_house(cards) else \
             HandType.FLUSH if self._has_flush(cards) else \
             HandType.STRAIGHT if self._has_straight(cards) else \
             HandType.THREE_OF_A_KIND if self._has_three_of_a_kind(cards) else \
+            HandType.TWO_PAIR if self._has_two_pairs(cards) else \
             HandType.ONE_PAIR if self._has_one_pair(cards) else \
             HandType.HIGH_CARDS
 
@@ -45,6 +47,19 @@ class PokerUseCase:
     def _has_four_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 4)
 
+    def _has_full_house(self, cards):
+        num_map = self._convert_number_dict(cards)
+        if len(num_map) != 2:
+            return False
+        three_count = 0
+        two_count = 0
+        for v in num_map.values():
+            if v == 3:
+                three_count += 1
+            elif v == 2:
+                two_count += 1
+        return three_count == 1 and two_count == 1  # 5枚限定
+
     def _has_flush(self, cards):
         suit_set = set([c.suit for c in cards])
         return len(suit_set) == 1  # 5枚以上の場合はNG
@@ -55,6 +70,19 @@ class PokerUseCase:
 
     def _has_three_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 3)
+
+    def _has_two_pairs(self, cards):
+        num_map = self._convert_number_dict(cards)
+        if len(num_map) != 3:
+            return False
+        two_count = 0
+        one_count = 0
+        for v in num_map.values():
+            if v == 2:
+                two_count += 1
+            elif v == 1:
+                one_count += 1
+        return two_count == 2 and one_count == 1  # 5枚限定
 
     def _has_one_pair(self, cards):
         return self._has_more_same_cards(cards, 2)
@@ -75,6 +103,15 @@ class PokerUseCase:
             if (l[1] >= target_num):
                 return True
         return False
+
+    def _convert_number_dict(self, cards):
+        result = dict()
+        for c in cards:
+            if c.number.number in result:
+                result[c.number.number] += 1
+            else:
+                result[c.number.number] = 1
+        return result
 
     def _convert_param(self, str_cards):
         """stringのカードリストをCardに変換します
