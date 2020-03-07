@@ -1,4 +1,4 @@
-[![](https://circleci.com/gh/mintak21/team-dev-practice.svg?style=shield&circle-token=dc9af5b436e25a00bb0c3dd4e12cdc8c7aeb2904)](https://circleci.com/gh/mintak21/team-dev-practice) [![codecov](https://codecov.io/gh/mintak21/team-dev-practice/branch/develop/graph/badge.svg)](https://codecov.io/gh/mintak21/team-dev-practice) [![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mintak21/team-dev-practice/blob/master/LICENSE)
+[![CircleCI](https://circleci.com/gh/mintak21/team-devops-training-1.svg?style=shield)](https://circleci.com/gh/mintak21/team-devops-training-1) [![codecov](https://codecov.io/gh/mintak21/team-devops-training-1/branch/develop/graph/badge.svg)](https://codecov.io/gh/mintak21/team-devops-training-1)  [![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mintak21/team-devops-training-1/blob/master/LICENSE)
 
 # アプリケーションの実行
 ## Local(Non-Docker)
@@ -18,7 +18,7 @@ curl -v http://localhost:5000/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
 ## Prod
 
 ```text
-https://team-dev-practice.herokuapp.com/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
+https://team-devops-training-1.herokuapp.com/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
 ```
 
 # アクセスポイント
