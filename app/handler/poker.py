@@ -9,7 +9,7 @@ poker_bp = Blueprint('poker', __name__)
 CORS(poker_bp)
 
 
-@poker_bp.route('/judge')
+@poker_bp.route('/judgement')
 def judge():
     cards = request.args.get('cards')
     result = judge_hand(cards.split(','))
