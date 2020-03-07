@@ -5,20 +5,20 @@
 
 ```bash
 make run
-curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
+curl -v http://localhost:5000/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
 ```
 
 ## Local(Docker)
 
 ```bash
 make run_docker
-curl -v http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
+curl -v http://localhost:5000/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
 ```
 
 ## Prod
 
 ```text
-https://team-devops-training-1.herokuapp.com/api/v1/poker/judge?cards=S2,S3,S4,S5,S6
+https://team-devops-training-1.herokuapp.com/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6
 ```
 
 # アクセスポイント
@@ -35,14 +35,14 @@ https://team-devops-training-1.herokuapp.com/api/v1/poker/judge?cards=S2,S3,S4,S
 
 ## 役判定
 
-- ルート：GET `/api/v1/poker/judge`
+- ルート：GET `/api/v1/poker/judgement`
 - リクエストパラメータ
 
   |名前|概要|データ型
   |:---|:---|:---
   |cards|判定したい手札一覧(5枚)|string(カンマ区切り)
 
-  Sample：`http://localhost:5000/api/v1/poker/judge?cards=S2,S3,S4,S5,S6`
+  Sample：`http://localhost:5000/api/v1/poker/judgement?cards=S2,S3,S4,S5,S6`
 
 - レスポンス
   - Class : string(json)
