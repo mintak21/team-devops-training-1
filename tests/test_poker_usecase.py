@@ -23,6 +23,7 @@ class TestPokerUseCase(object):
         self.st = ['H7', 'D6', 'H5', 'S4', 'C3']
         self.st_dummy = ['C2', 'H2', 'S3', 'D4', 'C6']
         self.st_fl = ['S9', 'S10', 'SJ', 'SQ', 'SK']
+        self.fl1 = ['H2', 'S2', 'D2', 'H4', 'S4']
 
     def teardown_method(self, method):
         pass
