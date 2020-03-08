@@ -107,10 +107,10 @@ class PokerUseCase:
     def _convert_number_dict(self, cards):
         result = dict()
         for c in cards:
-            if c.number.number in result:
-                result[c.number.number] += 1
+            if c.number in result:
+                result[c.number] += 1
             else:
-                result[c.number.number] = 1
+                result[c.number] = 1
         return result
 
     def _convert_param(self, str_cards):
