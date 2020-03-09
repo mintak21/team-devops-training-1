@@ -50,6 +50,8 @@ class PokerUseCase:
         return len(suit_set) == 1  # 5枚以上の場合はNG
 
     def _has_straight(self, cards):
+        max(cards) - min(cards) == 4
+        len(list(set(cards))) == 5
         # LEVEL C:ストレート判定の実装箇所
         return False
 
