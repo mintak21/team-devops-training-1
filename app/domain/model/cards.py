@@ -38,7 +38,6 @@ class Card(object):
 
 class Suit(Enum):
     """カードのスートを表す。
-    <を実装しているため、sorted()可能。
     """
     SPADE = ('S')
     HEART = ('H')
@@ -101,6 +100,26 @@ class CardNumber(Enum):
     @property
     def string_style(self):
         return self._string_style
+
+    def __gt__(self, other):
+        if self.__class__ is other.__class__:
+            return self._int_number > other.number
+        return NotImplemented
+
+    def __lt__(self, other):
+        if self.__class__ is other.__class__:
+            return self._int_number < other.number
+        return NotImplemented
+
+    def __add__(self, other):
+        if self.__class__ is other.__class__:
+            return self._int_number + other.number
+        return NotImplemented
+
+    def __sub__(self, other):
+        if self.__class__ is other.__class__:
+            return self._int_number - other.number
+        return NotImplemented
 
     @classmethod
     def value_of(cls, string_style):

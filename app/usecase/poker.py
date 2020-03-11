@@ -50,9 +50,17 @@ class PokerUseCase:
         return len(suit_set) == 1  # 5枚以上の場合はNG
 
     def _has_straight(self, cards):
-        max(cards) - min(cards) == 4
-        len(list(set(cards))) == 5
-        # LEVEL C:ストレート判定の実装箇所
+        # CardのリストからCardNumber(数字)のセットに変更
+        number_set = frozenset(card.number for card in cards)
+
+        # A. 数字の最大値 - 数字の最小値が4であるかどうかを判定する変数をつくる
+        # is_range_four = {TODO ここを記載}
+
+        # B. 数字が5種類存在するかどうかを判定する変数をつくる
+        # is_all_diffrenet_number = {TODO ここを記載}
+
+        # C. AかつBであればTrueを返却する、そうでなければFalseを返却する
+        # TODO ここを記載
         return False
 
     def _has_three_of_a_kind(self, cards):
