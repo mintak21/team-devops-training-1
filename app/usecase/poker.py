@@ -55,8 +55,7 @@ class PokerUseCase:
 
         # A. 数字の最大値 - 数字の最小値が4であるかどうかを判定する変数をつくる
         is_range_for = true if max(cards) - min(cards) == 4 else false
-
-
+        
         # B. 数字が5種類存在するかどうかを判定する変数をつくる
         is_all_diffrenet_number = true if len(list(set(cards))) == 5 else false
 
