@@ -54,15 +54,16 @@ class PokerUseCase:
         number_set = frozenset(card.number for card in cards)
 
         # A. 数字の最大値 - 数字の最小値が4であるかどうかを判定する変数をつくる
-        is_range_for = true if max(cards) - min(cards) == 4 else false
+        is_range_four = True if max(cards) - min(cards) == 4 else False
         
         # B. 数字が5種類存在するかどうかを判定する変数をつくる
-        is_all_diffrenet_number = true if len(list(set(cards))) == 5 else false
+        is_all_diffrenet_number = True if len(list(set(cards))) == 5 else False
 
         # C. AかつBであればTrueを返却する、そうでなければFalseを返却する
-        if is_range_four and is_all_diffrenet_number 
-	        return True
-        return False
+        if is_range_four and is_all_diffrenet_number:
+            return True
+        else:
+            return False
 
     def _has_three_of_a_kind(self, cards):
         return self._has_more_same_cards(cards, 3)
